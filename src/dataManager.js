@@ -75,7 +75,7 @@ const DEFAULT_TECH = [
 export const initData = () => {
   // Replace the old projects once with the new three projects.
   // Later visits will preserve projects added through the app.
-  const migrationKey = "portfolioProjectsV2";
+  const migrationKey = "portfolioProjectsV3";
 
   if (!localStorage.getItem(migrationKey)) {
     localStorage.setItem("projects", JSON.stringify(DEFAULT_PROJECTS));
