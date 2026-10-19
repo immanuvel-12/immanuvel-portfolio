@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-scroll';
-
 import profileImg from '../assets/immanuvel-profile.png'
 import cvPdf from '../assets/immanuvel-resume.pdf';
 

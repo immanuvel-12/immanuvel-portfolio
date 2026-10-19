@@ -1,24 +1,33 @@
+import styleHub from "./assets/style-hub.png";
+import expensio from "./assets/expensio.png";
+import contactFlow from "./assets/contact-flow.png";
+
+import mernCertificate from "./assets/mern-stack-certificate.jpg";
+import webCertificate from "./assets/web-dev-certificate.png";
+import uiuxCertificate from "./assets/ui-ux-certificate.jpeg";
+import tallyCertificate from "./assets/tally-certificate.png";
+import adobeCertificate from "./assets/adobe-certificate.png";
 
 const DEFAULT_PROJECTS = [
   {
     id: "p1",
     title: "STYLE HUB – Fashion E-Commerce Website",
     desc: "Designed a modern fashion e-commerce website featuring a clean user interface, elegant product presentation, intuitive navigation, and a responsive shopping experience.",
-    img: "/src/assets/style-hub.png",
+    img: styleHub,
     link: "#",
   },
   {
     id: "p2",
     title: "Expensio – Personal Expense Tracker",
     desc: "Developed a personal finance dashboard to track income, expenses, balance, and monthly budgets, with transaction management, category-based tracking, financial charts, and goal planning.",
-    img: "/src/assets/expensio.png",
+    img: expensio,
     link: "#",
   },
   {
     id: "p3",
     title: "ContactFlow – Contact Management System",
     desc: "Developed a full-stack contact management application using React.js, Node.js, Express.js, and MongoDB, featuring contact creation, contact records, REST API integration, and database connectivity.",
-    img: "/src/assets/contact-flow.png",
+    img: contactFlow,
     link: "#",
   },
 ];
@@ -27,27 +36,27 @@ const DEFAULT_CERTS = [
   {
     id: "c1",
     title: "MERN Stack Intern Certificate",
-    img: "/src/assets/mern-stack-certificate.jpg",
+    img: mernCertificate,
   },
   {
     id: "c2",
     title: "Web Development Intern Certificate",
-    img: "/src/assets/web-dev-certificate.png",
+    img: webCertificate,
   },
   {
     id: "c3",
     title: "UI/UX Intern Certificate",
-    img: "/src/assets/ui-ux-certificate.jpeg",
+    img: uiuxCertificate,
   },
   {
     id: "c4",
     title: "Tally Certificate",
-    img: "/src/assets/tally-certificate.png",
+    img: tallyCertificate,
   },
   {
     id: "c5",
     title: "Adobe XD Certificate",
-    img: "/src/assets/adobe-certificate.png",
+    img: adobeCertificate,
   },
 ];
 
