@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-scroll';
 import { motion } from 'framer-motion';
 import { FiArrowRight, FiDownload } from 'react-icons/fi';
-import cvPdf from '../assets/jenisha-cv.pdf';
+import cvPdf from '../assets/immanuvel-resume.pdf';
 
 
 const Hero = () => {
@@ -19,17 +19,17 @@ const Hero = () => {
           transition={{ duration: 0.8 }}
         >
           <span className="inline-block py-1 px-3 rounded-full glass border-white/10 text-primary text-sm font-medium mb-6">
-            Welcome to my creative universe
+            Aspiring Full Stack Developer | Open to Opportunities 
           </span>
           <h1 className="text-5xl md:text-7xl font-display font-bold leading-tight mb-6">
-            Hi, I'm <span className="text-gradient">Jenisha R</span>
+            Hi, I'm <span className="text-gradient">Immanuvel S</span>
             <br />
             <span className="text-4xl md:text-6xl text-textSecondary mt-2 block">
-              UI/UX Designer
+              MERN Stack Developer
             </span>
           </h1>
           <p className="max-w-2xl mx-auto text-textSecondary text-lg mb-10 leading-relaxed">
-            Crafting beautiful, intuitive, and modern digital experiences that solve real problems. I blend aesthetics with functionality to deliver premium user interfaces.
+            Passionate about solving problems, learning new technologies, and creating meaningful digital experiences.
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
@@ -39,16 +39,16 @@ const Hero = () => {
               duration={500}
               className="w-full sm:w-auto px-8 py-4 rounded-full bg-gradient-to-r from-primary to-secondary text-white font-medium hover:shadow-lg hover:shadow-primary/30 transition-all cursor-pointer flex items-center justify-center space-x-2 group"
             >
-              <span>View Projects</span>
+              <span>Explore My Work</span>
               <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
             </Link>
             <a 
               href={cvPdf} 
-              download="Jenisha_CV.pdf"
+              download="immanuvel-resume.pdf"
               target="_blank"
               className="w-full sm:w-auto px-8 py-4 rounded-full glass hover:bg-white/10 transition-all border border-white/10 text-textPrimary font-medium flex items-center justify-center space-x-2"
             >
-              <span>Download CV</span>
+              <span>Download Resume</span>
               <FiDownload />
             </a>
           </div>

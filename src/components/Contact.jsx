@@ -7,8 +7,8 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const text = `Hello Jenisha,%0A%0AMy name is ${formData.name} (${formData.email}).%0A%0A${formData.message}`;
-    window.open(`https://wa.me/9363571505?text=${text}`, '_blank');
+    const text = `Hello Immanuvel,%0A%0AMy name is ${formData.name} (${formData.email}).%0A%0A${formData.message}`;
+    window.open(`https://wa.me/8754637962?text=${text}`, '_blank');
   };
 
   return (
@@ -90,18 +90,18 @@ const Contact = () => {
             </p>
 
             <div className="space-y-6">
-              <a href="mailto:jenisha@example.com" className="flex items-center space-x-4 text-textSecondary hover:text-white transition-colors group">
+              <a href="mailto:immanuvel@example.com" className="flex items-center space-x-4 text-textSecondary hover:text-white transition-colors group">
                 <div className="w-12 h-12 glass rounded-full flex items-center justify-center group-hover:bg-primary/20 group-hover:text-primary transition-colors border border-white/10">
                   <FiMail size={20} />
                 </div>
-                <span className="text-lg">jenishajeni142@gmail.com</span>
+                <span className="text-lg">immanuvel.dev@gmail.com</span>
               </a>
 
               <div className="flex space-x-4 pt-4">
-                <a href="https://www.linkedin.com/in/jenisha-rajesh-7a0bbb2ba" target="_blank" className="w-12 h-12 glass rounded-full flex items-center justify-center text-textSecondary hover:bg-primary hover:text-white transition-all border border-white/10 hover:border-primary hover:-translate-y-1">
+                <a href="https://www.linkedin.com/in/immanuvel-dev/" target="_blank" className="w-12 h-12 glass rounded-full flex items-center justify-center text-textSecondary hover:bg-primary hover:text-white transition-all border border-white/10 hover:border-primary hover:-translate-y-1">
                   <FiLinkedin size={20} />
                 </a>
-                <a href="https://github.com/jenisha2215" target="_blank" className="w-12 h-12 glass rounded-full flex items-center justify-center text-textSecondary hover:bg-primary hover:text-white transition-all border border-white/10 hover:border-primary hover:-translate-y-1">
+                <a href="https://github.com/immanuvel-12" target="_blank" className="w-12 h-12 glass rounded-full flex items-center justify-center text-textSecondary hover:bg-primary hover:text-white transition-all border border-white/10 hover:border-primary hover:-translate-y-1">
                   <FiGithub size={20} />
                 </a>
                 <a href="#" target="_blank" className="w-12 h-12 glass rounded-full flex items-center justify-center text-textSecondary hover:bg-primary hover:text-white transition-all border border-white/10 hover:border-primary hover:-translate-y-1">

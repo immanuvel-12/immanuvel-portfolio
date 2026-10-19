@@ -1,8 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-scroll';
-import profileImg from '../assets/profile.jpeg';
-import cvPdf from '../assets/jenisha-cv.pdf';
+
+import profileImg from '../assets/immanuvel-profile.png'
+import cvPdf from '../assets/immanuvel-resume.pdf';
 
 
 const About = () => {
@@ -37,7 +38,7 @@ const About = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent z-10 pointer-events-none"></div>
                 <img 
                   src={profileImg} 
-                  alt="Jenisha R" 
+                  alt="Immanuvel s" 
                   className="w-full h-full object-cover transform transition-transform duration-700 hover:scale-110"
                 />
               </div>
@@ -63,22 +64,22 @@ const About = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h3 className="text-2xl font-display font-semibold mb-4 text-white">Designing with Purpose</h3>
+            <h3 className="text-2xl font-display font-semibold mb-4 text-white">Building with Purpose</h3>
             <p className="text-textSecondary text-lg mb-6 leading-relaxed">
-              I am a passionate UI/UX Designer dedicated to creating user-centric digital products. With a keen eye for aesthetics and a deep understanding of user behavior, I transform complex problems into elegant, intuitive solutions.
+              I am an aspiring MERN Stack Developer passionate about building modern, responsive, and user-friendly web applications. I enjoy transforming ideas into practical digital solutions using modern web technologies.
             </p>
             <p className="text-textSecondary text-lg mb-8 leading-relaxed">
-              My approach blends creativity with logic, ensuring that every design decision is backed by research and geared towards enhancing the overall user experience.
+              My approach combines problem-solving, clean code, and continuous learning to develop efficient applications that deliver meaningful user experiences.
             </p>
 
             <div className="flex space-x-4">
               <a 
                 href={cvPdf} 
-                download="Jenisha_CV.pdf"
+                download="immanuvel-resume.pdf"
                 target="_blank"
                 className="px-6 py-3 rounded-lg bg-primary hover:bg-blue-600 text-white font-medium transition-colors"
               >
-                Download CV
+                Download Resume
               </a>
               <Link 
                 to="portfolio" 
@@ -86,7 +87,7 @@ const About = () => {
                 duration={500}
                 className="px-6 py-3 rounded-lg glass hover:bg-white/10 border border-white/10 text-white font-medium transition-colors cursor-pointer"
               >
-                View Projects
+                Explore My Work 
               </Link>
             </div>
           </motion.div>
