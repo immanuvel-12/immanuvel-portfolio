@@ -1,9 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-scroll";
-import profileImg from "../assets/profile.png";
 import profile from '../assets/profile.png'
-import cvPdf from "../assets/imman-resume.pdf";
+import resume from '../assets/immanuvel-resume-software-developer.pdf'
 
 const About = () => {
   return (
@@ -87,8 +86,8 @@ const About = () => {
 
             <div className="flex space-x-4">
               <a
-                href={cvPdf}
-                download="imman-resume.pdf"
+                href={resume}
+                download="immanuvel-resume-software-developer.pdf"
                 target="_blank"
                 className="px-6 py-3 rounded-lg bg-primary hover:bg-blue-600 text-white font-medium transition-colors"
               >

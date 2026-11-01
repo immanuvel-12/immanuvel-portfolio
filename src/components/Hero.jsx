@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-scroll';
 import { motion } from 'framer-motion';
 import { FiArrowRight, FiDownload } from 'react-icons/fi';
-import cvPdf from '../assets/imman-resume.pdf';
+import resume from '../assets/immanuvel-resume-software-developer.pdf'
 
 
 const Hero = () => {
@@ -43,8 +43,8 @@ const Hero = () => {
               <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
             </Link>
             <a 
-              href={cvPdf} 
-              download="imman-resume.pdf"
+              href={resume} 
+              download="immanuvel-resume-software-developer.pdf"
               target="_blank"
               className="w-full sm:w-auto px-8 py-4 rounded-full glass hover:bg-white/10 transition-all border border-white/10 text-textPrimary font-medium flex items-center justify-center space-x-2"
             >

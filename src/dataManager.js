@@ -1,5 +1,5 @@
-import expensio from "./assets/expensio.png";
-import styleHub from "./assets/style-hub.png";
+import expense from "./assets/expense-tracker.png";
+import shopping from "./assets/e-commerce.png";
 import contactFlow from "./assets/contact-flow.png";
 import chatApplication from "./assets/real-time-chat.png";
 
@@ -16,7 +16,7 @@ const DEFAULT_PROJECTS = [
     id: "p1",
     title: "Expensio – Personal Expense Tracker",
     desc: "Developed a personal finance dashboard to track income, expenses, balance, and monthly budgets, featuring transaction management, category-based tracking, financial charts, and goal planning.",
-    img: expensio,
+    img: expense,
     link: "https://expense-tracker-xi-eight-62.vercel.app/",
   },
   {
@@ -30,7 +30,7 @@ const DEFAULT_PROJECTS = [
     id: "p3",
     title: "StyleHub – Fashion E-Commerce Website",
     desc: "Developed a responsive fashion e-commerce platform featuring product browsing, shopping cart management, secure user authentication, order processing, and an intuitive shopping experience using the MERN stack.",
-    img: styleHub,
+    img: shopping,
     link: "https://stylehub-frontend-nu.vercel.app/",
   },
   {
