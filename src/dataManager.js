@@ -1,6 +1,7 @@
-import styleHub from "./assets/style-hub.png";
 import expensio from "./assets/expensio.png";
+import styleHub from "./assets/style-hub.png";
 import contactFlow from "./assets/contact-flow.png";
+import chatApplication from "./assets/real-time-chat.png";
 
 import mernCertificate from "./assets/mern-stack-certificate.jpg";
 import webCertificate from "./assets/web-dev-certificate.png";
@@ -8,29 +9,40 @@ import uiuxCertificate from "./assets/ui-ux-certificate.jpeg";
 import tallyCertificate from "./assets/tally-certificate.png";
 import adobeCertificate from "./assets/adobe-certificate.png";
 
+// ================= PROJECTS =================
+
 const DEFAULT_PROJECTS = [
   {
     id: "p1",
-    title: "STYLE HUB – Fashion E-Commerce Website",
-    desc: "Designed a modern fashion e-commerce website featuring a clean user interface, elegant product presentation, intuitive navigation, and a responsive shopping experience.",
-    img: styleHub,
-    link: "#",
+    title: "Expensio – Personal Expense Tracker",
+    desc: "Developed a personal finance dashboard to track income, expenses, balance, and monthly budgets, featuring transaction management, category-based tracking, financial charts, and goal planning.",
+    img: expensio,
+    link: "https://expense-tracker-xi-eight-62.vercel.app/",
   },
   {
     id: "p2",
-    title: "Expensio – Personal Expense Tracker",
-    desc: "Developed a personal finance dashboard to track income, expenses, balance, and monthly budgets, with transaction management, category-based tracking, financial charts, and goal planning.",
-    img: expensio,
-    link: "#",
+    title: "ChatConnect – Real-Time Chat Application",
+    desc: "Developed a real-time messaging application with secure JWT authentication, instant messaging, online user status, and seamless communication using Socket.io. Implemented responsive UI and RESTful APIs for efficient user and chat management.",
+    img: chatApplication,
+    link: "https://real-time-chat-application-two-inky.vercel.app/",
   },
   {
     id: "p3",
+    title: "StyleHub – Fashion E-Commerce Website",
+    desc: "Developed a responsive fashion e-commerce platform featuring product browsing, shopping cart management, secure user authentication, order processing, and an intuitive shopping experience using the MERN stack.",
+    img: styleHub,
+    link: "https://stylehub-frontend-nu.vercel.app/",
+  },
+  {
+    id: "p4",
     title: "ContactFlow – Contact Management System",
-    desc: "Developed a full-stack contact management application using React.js, Node.js, Express.js, and MongoDB, featuring contact creation, contact records, REST API integration, and database connectivity.",
+    desc: "Developed a full-stack contact management application using React.js, Node.js, Express.js, and MongoDB, featuring contact creation, updating, deletion, organized contact records, and RESTful API integration.",
     img: contactFlow,
     link: "#",
   },
 ];
+
+// ================= CERTIFICATES =================
 
 const DEFAULT_CERTS = [
   {
@@ -60,101 +72,134 @@ const DEFAULT_CERTS = [
   },
 ];
 
+// ================= TECH STACK =================
+
 const DEFAULT_TECH = [
-  { id: "t1", name: "HTML5", icon: "FaHtml5" },
-  { id: "t2", name: "CSS3", icon: "FaCss3Alt" },
-  { id: "t3", name: "JavaScript", icon: "SiJavascript" },
+  { id: "t1", name: "JavaScript", icon: "SiJavascript" },
+  { id: "t2", name: "HTML5", icon: "FaHtml5" },
+  { id: "t3", name: "CSS3", icon: "FaCss3Alt" },
   { id: "t4", name: "React.js", icon: "FaReact" },
   { id: "t5", name: "Node.js", icon: "FaNodeJs" },
   { id: "t6", name: "Express.js", icon: "SiExpress" },
   { id: "t7", name: "MongoDB", icon: "SiMongodb" },
-  { id: "t8", name: "SQL", icon: "SiMysql" },
-  { id: "t9", name: "GitHub", icon: "SiGithub" },
+  { id: "t8", name: "Tailwind CSS", icon: "SiTailwindcss" },
+  { id: "t9", name: "Git", icon: "SiGit" },
+  { id: "t10", name: "GitHub", icon: "SiGithub" },
+  { id: "t11", name: "Postman", icon: "SiPostman" },
+  { id: "t12", name: "Vercel", icon: "SiVercel" },
+  { id: "t13", name: "Netlify", icon: "SiNetlify" },
+  { id: "t14", name: "Socket.io", icon: "SiSocketdotio" },
+  { id: "t15", name: "JWT", icon: "SiJsonwebtokens" },
 ];
 
-export const initData = () => {
-  // Replace the old projects once with the new three projects.
-  // Later visits will preserve projects added through the app.
-  const migrationKey = "portfolioProjectsV3";
+// ================= INITIALIZATION =================
 
-  if (!localStorage.getItem(migrationKey)) {
+export const initData = () => {
+  // Update projects only once.
+  const projectMigrationKey = "portfolioProjectsV4";
+
+  if (!localStorage.getItem(projectMigrationKey)) {
     localStorage.setItem("projects", JSON.stringify(DEFAULT_PROJECTS));
-    localStorage.setItem(migrationKey, "true");
+    localStorage.setItem(projectMigrationKey, "true");
   } else if (!localStorage.getItem("projects")) {
     localStorage.setItem("projects", JSON.stringify(DEFAULT_PROJECTS));
   }
 
-  // Keep the default certificates and preserve custom certificates.
+  // Update default certificates and preserve custom certificates.
   try {
-    const savedCerts = JSON.parse(
-      localStorage.getItem("certificates") || "[]"
-    );
+    const savedCerts = JSON.parse(localStorage.getItem("certificates") || "[]");
 
     const updatedDefaults = DEFAULT_CERTS.map((defaultCert) => {
-      const saved = savedCerts.find(
-        (cert) => cert.id === defaultCert.id
-      );
+      const saved = savedCerts.find((cert) => cert.id === defaultCert.id);
 
       return saved ? { ...saved, ...defaultCert } : defaultCert;
     });
 
     const customCerts = savedCerts.filter(
-      (cert) => !DEFAULT_CERTS.some((item) => item.id === cert.id)
+      (cert) => !DEFAULT_CERTS.some((item) => item.id === cert.id),
     );
 
     localStorage.setItem(
       "certificates",
-      JSON.stringify([...updatedDefaults, ...customCerts])
+      JSON.stringify([...updatedDefaults, ...customCerts]),
     );
   } catch {
     localStorage.setItem("certificates", JSON.stringify(DEFAULT_CERTS));
   }
 
-  // Refresh the default technology list.
-  localStorage.setItem("techStack", JSON.stringify(DEFAULT_TECH));
+  // Update technology list only once.
+  const techMigrationKey = "portfolioTechV3";
+
+  if (!localStorage.getItem(techMigrationKey)) {
+    localStorage.setItem("techStack", JSON.stringify(DEFAULT_TECH));
+    localStorage.setItem(techMigrationKey, "true");
+  } else if (!localStorage.getItem("techStack")) {
+    localStorage.setItem("techStack", JSON.stringify(DEFAULT_TECH));
+  }
 };
 
-// Projects
+// ================= PROJECT FUNCTIONS =================
+
 export const getProjects = () =>
   JSON.parse(localStorage.getItem("projects") || "[]");
 
 export const addProject = (project) => {
   const data = getProjects();
-  data.push({ id: Date.now().toString(), ...project });
+
+  data.push({
+    id: Date.now().toString(),
+    ...project,
+  });
+
   localStorage.setItem("projects", JSON.stringify(data));
 };
 
 export const deleteProject = (id) => {
   const data = getProjects().filter((project) => project.id !== id);
+
   localStorage.setItem("projects", JSON.stringify(data));
 };
 
-// Certificates
+// ================= CERTIFICATE FUNCTIONS =================
+
 export const getCertificates = () =>
   JSON.parse(localStorage.getItem("certificates") || "[]");
 
 export const addCertificate = (cert) => {
   const data = getCertificates();
-  data.push({ id: Date.now().toString(), ...cert });
+
+  data.push({
+    id: Date.now().toString(),
+    ...cert,
+  });
+
   localStorage.setItem("certificates", JSON.stringify(data));
 };
 
 export const deleteCertificate = (id) => {
   const data = getCertificates().filter((cert) => cert.id !== id);
+
   localStorage.setItem("certificates", JSON.stringify(data));
 };
 
-// Tech Stack
+// ================= TECH STACK FUNCTIONS =================
+
 export const getTechStack = () =>
   JSON.parse(localStorage.getItem("techStack") || "[]");
 
 export const addTech = (tech) => {
   const data = getTechStack();
-  data.push({ id: Date.now().toString(), ...tech });
+
+  data.push({
+    id: Date.now().toString(),
+    ...tech,
+  });
+
   localStorage.setItem("techStack", JSON.stringify(data));
 };
 
 export const deleteTech = (id) => {
   const data = getTechStack().filter((tech) => tech.id !== id);
+
   localStorage.setItem("techStack", JSON.stringify(data));
 };

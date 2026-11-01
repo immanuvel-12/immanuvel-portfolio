@@ -1,28 +1,32 @@
-
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+
 import {
   initData,
   getProjects,
   getCertificates,
   getTechStack,
 } from "../dataManager";
+
 import { FiExternalLink, FiX } from "react-icons/fi";
 
-import {
-  FaHtml5,
-  FaCss3Alt,
-  FaReact,
-  FaNodeJs,
-} from "react-icons/fa";
+import { FaHtml5, FaCss3Alt, FaReact, FaNodeJs } from "react-icons/fa";
 
 import {
   SiJavascript,
   SiExpress,
   SiMongodb,
-  SiMysql,
   SiGithub,
+  SiTailwindcss,
+  SiGit,
+  SiPostman,
+  SiVercel,
+  SiNetlify,
+  SiSocketdotio,
+  SiJsonwebtokens,
 } from "react-icons/si";
+
+// ================= ICON MAP =================
 
 const iconMap = {
   FaHtml5: <FaHtml5 color="#E34F26" />,
@@ -30,18 +34,30 @@ const iconMap = {
   SiJavascript: <SiJavascript color="#F7DF1E" />,
   FaReact: <FaReact color="#61DAFB" />,
   FaNodeJs: <FaNodeJs color="#339933" />,
-  SiExpress: <SiExpress color="#FFFFFF" />,
+  SiExpress: <SiExpress color="currentColor" />,
   SiMongodb: <SiMongodb color="#47A248" />,
-  SiMysql: <SiMysql color="#4479A1" />,
-  SiGithub: <SiGithub color="#FFFFFF" />,
+  SiGithub: <SiGithub color="currentColor" />,
+  SiTailwindcss: <SiTailwindcss color="#06B6D4" />,
+  SiGit: <SiGit color="#F05032" />,
+  SiPostman: <SiPostman color="#FF6C37" />,
+  SiVercel: <SiVercel color="currentColor" />,
+  SiNetlify: <SiNetlify color="#00C7B7" />,
+  SiSocketdotio: <SiSocketdotio color="currentColor" />,
+  SiJsonwebtokens: <SiJsonwebtokens color="#FB015B" />,
 };
+
+// ================= PORTFOLIO COMPONENT =================
 
 const Portfolio = () => {
   const [activeTab, setActiveTab] = useState("projects");
+
   const [projects, setProjects] = useState([]);
   const [certs, setCerts] = useState([]);
   const [techStack, setTechStack] = useState([]);
+
   const [selectedCert, setSelectedCert] = useState(null);
+
+  // ================= LOAD DATA =================
 
   useEffect(() => {
     initData();
@@ -51,6 +67,8 @@ const Portfolio = () => {
     setTechStack(getTechStack());
   }, []);
 
+  // ================= TABS =================
+
   const tabs = [
     { id: "projects", label: "Projects" },
     { id: "certificates", label: "Certificates" },
@@ -58,11 +76,10 @@ const Portfolio = () => {
   ];
 
   return (
-    <section
-      id="portfolio"
-      className="py-24 relative bg-surface/30"
-    >
+    <section id="portfolio" className="py-24 relative bg-surface/30">
       <div className="container mx-auto px-6 md:px-12">
+        {/* ================= SECTION HEADING ================= */}
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -73,10 +90,15 @@ const Portfolio = () => {
             My <span className="text-gradient">Portfolio</span>
           </h2>
 
+          <p className="text-textSecondary text-sm md:text-base mb-6">
+            Explore my projects, certifications, and technical expertise.
+          </p>
+
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full" />
         </motion.div>
 
-        {/* Portfolio Tabs */}
+        {/* ================= PORTFOLIO TABS ================= */}
+
         <div className="flex justify-center mb-12 space-x-2 md:space-x-4 flex-wrap">
           {tabs.map((tab) => (
             <button
@@ -94,7 +116,8 @@ const Portfolio = () => {
         </div>
 
         <div className="min-h-[400px]">
-          {/* Projects */}
+          {/* ================= PROJECTS ================= */}
+
           {activeTab === "projects" && (
             <motion.div
               initial={{ opacity: 0 }}
@@ -103,10 +126,15 @@ const Portfolio = () => {
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
             >
               {projects.map((project) => (
-                <div
+                <motion.div
                   key={project.id}
-                  className="glass-card rounded-2xl overflow-hidden group hover:-translate-y-2 transition-all"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4 }}
+                  className="glass-card rounded-2xl overflow-hidden group hover:-translate-y-2 transition-all duration-300"
                 >
+                  {/* PROJECT IMAGE */}
+
                   <div className="relative h-48 overflow-hidden">
                     <img
                       src={project.img}
@@ -122,7 +150,7 @@ const Portfolio = () => {
                         <a
                           href={project.link}
                           target="_blank"
-                          rel="noreferrer"
+                          rel="noopener noreferrer"
                           aria-label={`Open ${project.title}`}
                           className="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white scale-0 group-hover:scale-100 transition-transform duration-300"
                         >
@@ -132,21 +160,36 @@ const Portfolio = () => {
                     )}
                   </div>
 
+                  {/* PROJECT DETAILS */}
+
                   <div className="p-6">
-                    <h3 className="text-xl font-display font-semibold mb-2">
+                    <h3 className="text-xl font-display font-semibold mb-3">
                       {project.title}
                     </h3>
 
-                    <p className="text-textSecondary text-sm line-clamp-3">
+                    <p className="text-textSecondary text-sm leading-relaxed line-clamp-4">
                       {project.desc}
                     </p>
+
+                    {project.link && project.link !== "#" && (
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-primary text-sm font-medium mt-5 hover:gap-3 transition-all"
+                      >
+                        View Project
+                        <FiExternalLink size={15} />
+                      </a>
+                    )}
                   </div>
-                </div>
+                </motion.div>
               ))}
             </motion.div>
           )}
 
-          {/* Certificates */}
+          {/* ================= CERTIFICATES ================= */}
+
           {activeTab === "certificates" && (
             <motion.div
               initial={{ opacity: 0 }}
@@ -168,6 +211,8 @@ const Portfolio = () => {
                   tabIndex={0}
                   className="glass-card rounded-2xl overflow-hidden group cursor-pointer hover:-translate-y-2 transition-all border border-white/10 hover:border-primary/50"
                 >
+                  {/* CERTIFICATE IMAGE */}
+
                   <div className="relative h-56 overflow-hidden">
                     <img
                       src={cert.img}
@@ -185,6 +230,8 @@ const Portfolio = () => {
                     </div>
                   </div>
 
+                  {/* CERTIFICATE TITLE */}
+
                   <div className="p-6 text-center">
                     <h3 className="text-lg font-display font-semibold text-white">
                       {cert.title}
@@ -195,34 +242,44 @@ const Portfolio = () => {
             </motion.div>
           )}
 
-          {/* Tech Stack */}
+          {/* ================= TECH STACK ================= */}
+
           {activeTab === "tech" && (
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.4 }}
-              className="flex flex-wrap justify-center gap-6 max-w-3xl mx-auto"
+              className="flex flex-wrap justify-center gap-6 max-w-5xl mx-auto"
             >
-              {techStack.map((tech) => (
-                <div
+              {techStack.map((tech, index) => (
+                <motion.div
                   key={tech.id}
-                  className="flex flex-col items-center p-6 glass-card rounded-2xl min-w-[120px] hover:border-primary/50 hover:-translate-y-2 transition-all"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{
+                    duration: 0.4,
+                    delay: index * 0.05,
+                  }}
+                  className="flex flex-col items-center justify-center gap-4 p-6 glass-card rounded-2xl min-w-[125px] min-h-[125px] border border-white/10 hover:border-primary/50 hover:-translate-y-2 transition-all duration-300"
                 >
-                  <div className="text-4xl mb-4">
-                    {iconMap[tech.icon] || null}
-                  </div>
+                  {/* TECHNOLOGY ICON */}
 
-                  <span className="text-sm font-medium">
+                  <div className="text-4xl">{iconMap[tech.icon] || null}</div>
+
+                  {/* TECHNOLOGY NAME */}
+
+                  <span className="text-sm font-medium text-center">
                     {tech.name}
                   </span>
-                </div>
+                </motion.div>
               ))}
             </motion.div>
           )}
         </div>
       </div>
 
-      {/* Certificate Preview Modal */}
+      {/* ================= CERTIFICATE PREVIEW MODAL ================= */}
+
       {selectedCert && (
         <div
           className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8 bg-black/95 backdrop-blur-md"
@@ -235,6 +292,8 @@ const Portfolio = () => {
             className="relative max-w-5xl w-full"
             onClick={(e) => e.stopPropagation()}
           >
+            {/* CLOSE BUTTON */}
+
             <button
               onClick={() => setSelectedCert(null)}
               aria-label="Close certificate"
@@ -243,11 +302,15 @@ const Portfolio = () => {
               <FiX size={32} />
             </button>
 
+            {/* FULL CERTIFICATE IMAGE */}
+
             <img
               src={selectedCert.img}
               alt={selectedCert.title}
               className="w-full h-auto max-h-[80vh] object-contain rounded-lg shadow-2xl border border-white/10"
             />
+
+            {/* CERTIFICATE TITLE */}
 
             <div className="mt-6 text-center">
               <h3 className="text-2xl md:text-3xl font-display font-bold text-white mb-2">
@@ -264,3 +327,4 @@ const Portfolio = () => {
 };
 
 export default Portfolio;
+9;

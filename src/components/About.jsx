@@ -1,7 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-scroll";
-import profileImg from "../assets/immanuvel-profile.png";
+import profileImg from "../assets/profile.png";
+import profile from '../assets/profile.png'
 import cvPdf from "../assets/imman-resume.pdf";
 
 const About = () => {
@@ -37,7 +38,7 @@ const About = () => {
               <div className="relative overflow-hidden rounded-[1.5rem] aspect-[4/5]">
                 <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent z-10 pointer-events-none"></div>
                 <img
-                  src={profileImg}
+                  src={profile}
                   alt="Immanuvel s"
                   className="w-full h-full object-cover transform transition-transform duration-700 hover:scale-110"
                 />
