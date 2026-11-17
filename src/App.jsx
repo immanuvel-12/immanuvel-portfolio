@@ -22,9 +22,7 @@ function App() {
         <Contact />
       </main>
       
-      <footer className="py-8 border-t border-white/10 text-center text-textSecondary text-sm">
-        <p>© {new Date().getFullYear()} Jenisha R. All rights reserved.</p>
-      </footer>
+      
     </div>
   );
 }
